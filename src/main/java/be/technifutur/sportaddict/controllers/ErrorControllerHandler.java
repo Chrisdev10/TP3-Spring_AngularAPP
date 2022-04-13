@@ -2,6 +2,8 @@ package be.technifutur.sportaddict.controllers;
 
 import be.technifutur.sportaddict.dto.ErrorDTO;
 import be.technifutur.sportaddict.exception.ElementNotFoundException;
+import be.technifutur.sportaddict.exception.EmailAlreadyInException;
+import be.technifutur.sportaddict.exception.UsernameAlreadyInException;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -28,6 +30,30 @@ public class ErrorControllerHandler {
     }
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<ErrorDTO> validatorTriggered(MethodArgumentNotValidException ex, HttpServletRequest req){
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                .body(
+                        ErrorDTO.builder()
+                                .message(ex.getMessage())
+                                .method(HttpMethod.resolve(req.getMethod()))
+                                .status(HttpStatus.BAD_REQUEST)
+                                .uri(req.getRequestURI())
+                                .build()
+                );
+    }
+    @ExceptionHandler(EmailAlreadyInException.class)
+    public ResponseEntity<ErrorDTO> emailAlreadyIn(EmailAlreadyInException ex, HttpServletRequest req){
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                .body(
+                        ErrorDTO.builder()
+                                .message(ex.getMessage())
+                                .method(HttpMethod.resolve(req.getMethod()))
+                                .status(HttpStatus.BAD_REQUEST)
+                                .uri(req.getRequestURI())
+                                .build()
+                );
+    }
+    @ExceptionHandler(UsernameAlreadyInException.class)
+    public ResponseEntity<ErrorDTO> usernameAlreadyIn(UsernameAlreadyInException ex, HttpServletRequest req){
         return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                 .body(
                         ErrorDTO.builder()

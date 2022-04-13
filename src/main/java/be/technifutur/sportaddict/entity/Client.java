@@ -18,12 +18,18 @@ public class Client implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    @Column(unique = true)
+    private String username;
+    private String password;
     private String name;
     private String firstName;
     private LocalDate birthDate;
+    @Column(unique = true)
     private String email;
     private int phone;
+    private String adresse;
+    private String city;
+
 
     @OneToOne(mappedBy = "clientID")
     private Subscription subscription;

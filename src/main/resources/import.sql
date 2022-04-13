@@ -18,6 +18,7 @@ insert into client (id, name, first_name, birth_date, email, phone) values (0, '
 insert into client (id, name, first_name, birth_date, email, phone) values (0, 'Godfroy', 'Justina', '1999/11/24', 'jgodfroyh@freewebs.com', 10046735);
 insert into client (id, name, first_name, birth_date, email, phone) values (0, 'Hodcroft', 'Isidore', '1989/04/07', 'ihodcrofti@scientificamerican.com', 11939915);
 insert into client (id, name, first_name, birth_date, email, phone) values (0, 'Havile', 'Renard', '1993/01/10', 'rhavilej@bigcartel.com', 12032511);
+insert into client (id,username,password, name, first_name, birth_date, email, phone) values (0,'chris','chris', 'Havile', 'Renard', '1993/01/10', 'rhavilej@bigcartel.com', 12032511);
 
 
 insert into owner (id, name, first_name, birth_date) values (0, 'Satchell', 'Alix', '1985/07/16');
