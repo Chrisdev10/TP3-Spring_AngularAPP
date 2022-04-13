@@ -3,7 +3,7 @@ package be.technifutur.sportaddict.mapper;
 import be.technifutur.sportaddict.dto.SubsDTO;
 import be.technifutur.sportaddict.entity.Subscription;
 import be.technifutur.sportaddict.repository.ClientRepo;
-import com.sun.xml.bind.v2.TODO;
+import be.technifutur.sportaddict.repository.FitnessRepo;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -11,11 +11,14 @@ public class SubsMapper {
     private final ClientMapper clientMapper;
     private final FitnessMapper fitnessMapper;
     private final ClientRepo clientRepo;
+    private final FitnessRepo fitnessRepo;
 
-    public SubsMapper(ClientMapper clientMapper, FitnessMapper fitnessMapper, ClientRepo clientRepo) {
+
+    public SubsMapper(ClientMapper clientMapper, FitnessMapper fitnessMapper, ClientRepo clientRepo, FitnessRepo fitnessRepo) {
         this.clientMapper = clientMapper;
         this.fitnessMapper = fitnessMapper;
         this.clientRepo = clientRepo;
+        this.fitnessRepo = fitnessRepo;
     }
 
     public SubsDTO entity2DTO(Subscription sub){
@@ -35,10 +38,13 @@ public class SubsMapper {
         if (subsDTO == null) {
             return null;
         }
-        return null;
+        return Subscription.builder()
+                .clientID(clientRepo.getById(subsDTO.getClient()))
+                .fitnessID(fitnessRepo.getById(subsDTO.getFitness()))
+                .contractType(subsDTO.getContractType())
+                .contractExpire(subsDTO.getContractExpire())
+                .build();
     }
-    /////
-    // TODO : Fix mapper for subscription
 
 
 

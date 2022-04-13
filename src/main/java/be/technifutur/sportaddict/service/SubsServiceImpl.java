@@ -33,8 +33,8 @@ public class SubsServiceImpl implements SubsService{
 
     @Override
     public SubsDTO addOne(SubsDTO sub) {
-        repo.save(mapper.);
-        return
+        repo.save(mapper.dto2entity(sub));
+        return sub;
     }
 
     @Override

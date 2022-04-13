@@ -4,10 +4,16 @@ import be.technifutur.sportaddict.dto.FitnessDTO;
 import be.technifutur.sportaddict.entity.FitnessHall;
 import be.technifutur.sportaddict.entity.Owner;
 import be.technifutur.sportaddict.forms.FitnessForm;
+import be.technifutur.sportaddict.repository.OwnerRepo;
 import org.springframework.stereotype.Component;
 
 @Component
 public class FitnessMapper {
+    private final OwnerRepo repo;
+
+    public FitnessMapper(OwnerRepo repo) {
+        this.repo = repo;
+    }
 
     /**
      *
@@ -35,14 +41,13 @@ public class FitnessMapper {
     }
 
     public FitnessHall form2entity(FitnessForm form){
-        Owner owner = null;
         if(form == null)
             return null;
         return FitnessHall.builder()
                 .area(form.getArea())
                 .cp(form.getCp())
                 .city(form.getCity())
-                .owner(owner)
+                .owner(repo.getById(form.getOwnerID()))
                 .build();
     }
 
