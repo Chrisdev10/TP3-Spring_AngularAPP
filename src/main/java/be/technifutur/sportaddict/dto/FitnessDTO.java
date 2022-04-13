@@ -7,7 +7,7 @@ import java.util.List;
 @Data
 @Builder
 public class FitnessDTO {
-
+    private Long id;
     private String city;
     private int cp;
     private int area;

@@ -26,7 +26,7 @@ public class ClientForm {
     private String password;
     private LocalDate birthDate;
     private int phone;
-    @Size(min = 5, max = 15)
+    @Size(min = 5, max = 30)
     private String adresse;
     @Size(min = 4, max = 15)
     private String city;

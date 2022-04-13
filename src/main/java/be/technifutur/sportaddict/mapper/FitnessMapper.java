@@ -26,6 +26,7 @@ public class FitnessMapper {
         }
 
         return FitnessDTO.builder()
+                .id(fitness.getId())
                 .area(fitness.getArea())
                 .city(fitness.getCity())
                 .cp(fitness.getCp())
