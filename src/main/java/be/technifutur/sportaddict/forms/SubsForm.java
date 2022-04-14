@@ -1,4 +1,4 @@
-package be.technifutur.sportaddict.dto;
+package be.technifutur.sportaddict.forms;
 
 import lombok.Builder;
 import lombok.Data;
@@ -7,10 +7,8 @@ import java.time.LocalDateTime;
 
 @Data
 @Builder
-public class SubsDTO {
-    private Long client;
-    private Long fitness;
+public class SubsForm {
+
     private String contractType;
     private LocalDateTime contractExpire;
-
 }

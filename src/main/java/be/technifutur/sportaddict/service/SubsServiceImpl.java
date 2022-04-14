@@ -1,8 +1,12 @@
 package be.technifutur.sportaddict.service;
 
 import be.technifutur.sportaddict.dto.SubsDTO;
+import be.technifutur.sportaddict.entity.Subscription;
+import be.technifutur.sportaddict.exception.ElementNotFoundException;
+import be.technifutur.sportaddict.forms.SubsForm;
 import be.technifutur.sportaddict.mapper.SubsMapper;
 import be.technifutur.sportaddict.repository.SubscriptionRepo;
+import org.hibernate.mapping.Subclass;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -27,8 +31,8 @@ public class SubsServiceImpl implements SubsService{
 
     @Override
     public SubsDTO getOne(Long id) {
-        System.out.println();
-        return mapper.entity2DTO(repo.findByClientID(id));
+        Subscription subs = findContract(id);
+        return mapper.entity2DTO(subs);
     }
 
     @Override
@@ -39,6 +43,23 @@ public class SubsServiceImpl implements SubsService{
 
     @Override
     public SubsDTO deleteOne(Long id) {
-        return null;
+        Subscription subs = findContract(id);
+        repo.delete(subs);
+        return mapper.entity2DTO(subs);
     }
+
+    @Override
+    public SubsDTO update(Long id, SubsForm form) {
+        Subscription subs = findContract(id);
+        subs.setContractType(form.getContractType());
+        subs.setContractExpire(form.getContractExpire());
+        repo.save(subs);
+        return mapper.entity2DTO(subs);
+    }
+
+    private Subscription findContract(Long id){
+        return repo.findByClientID(id).orElseThrow(()-> new ElementNotFoundException(id,SubsDTO.class));
+    }
+
+
 }

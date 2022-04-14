@@ -43,11 +43,11 @@ insert into owner (id, name, first_name, birth_date) values (0, 'Collacombe', 'R
 insert into owner (id, name, first_name, birth_date) values (0, 'Snowding', 'Harli', '1980/07/31');
 
 insert into optiont (id,name) values (0,'piscine');
-insert into optiont (id,name) values (0,'hamam');
-insert into optiont (id,name) values (0,'sauna');
-insert into optiont (id,name) values (0,'salle de boxe');
-insert into optiont (id,name) values (0,'salle exercice collectif');
-insert into optiont (id,name) values (0,'bar');
+insert into optiont (id,name) values (1,'hamam');
+insert into optiont (id,name) values (2,'sauna');
+insert into optiont (id,name) values (3,'salle de boxe');
+insert into optiont (id,name) values (4,'salle exercice collectif');
+insert into optiont (id,name) values (5,'bar');
 
 insert into fitness_hall (id, city, cp, area, owner_id) values (0, 'Mont-Laurier', 4532, 599,6);
 insert into fitness_hall (id, city, cp, area, owner_id) values (0, 'Verkhnyaya Toyma', 4660, 593,7);

@@ -1,6 +1,7 @@
 package be.technifutur.sportaddict.entity;
 
 import lombok.*;
+import org.springframework.security.core.userdetails.UserDetailsService;
 
 import javax.persistence.*;
 import java.io.Serializable;

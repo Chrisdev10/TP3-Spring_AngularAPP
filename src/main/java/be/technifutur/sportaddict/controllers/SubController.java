@@ -1,6 +1,7 @@
 package be.technifutur.sportaddict.controllers;
 
 import be.technifutur.sportaddict.dto.SubsDTO;
+import be.technifutur.sportaddict.forms.SubsForm;
 import be.technifutur.sportaddict.service.SubsService;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,8 +26,21 @@ public class SubController {
     List<SubsDTO> getAll(){
         return service.getAll();
     }
+
     @PostMapping("")
     SubsDTO addOne(@RequestBody SubsDTO sub){
         return service.addOne(sub);
     }
+
+    @DeleteMapping("{id}")
+    SubsDTO delete(@PathVariable Long id){
+        return service.deleteOne(id);
+    }
+
+    @PutMapping("{id}")
+    SubsDTO update(@PathVariable Long id, @RequestBody SubsForm form){
+        return service.update(id, form);
+    }
+
+
 }
