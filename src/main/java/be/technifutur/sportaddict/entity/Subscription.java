@@ -27,6 +27,9 @@ public class Subscription implements Serializable {
     @JoinColumn(name = "fitness_id")
     private FitnessHall fitnessID;
 
+    @Column(name = "contract_access", nullable = false)
+    private String contractAccess;
+
     @Column(name = "contract_type", nullable = false)
     private String contractType;
     @Column(name = "expire_date", nullable = false)

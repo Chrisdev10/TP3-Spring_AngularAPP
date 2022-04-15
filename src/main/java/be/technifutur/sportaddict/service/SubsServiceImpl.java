@@ -36,9 +36,10 @@ public class SubsServiceImpl implements SubsService{
     }
 
     @Override
-    public SubsDTO addOne(SubsDTO sub) {
-        repo.save(mapper.dto2entity(sub));
-        return sub;
+    public SubsDTO addOne(SubsForm sub) {
+        Subscription subs = mapper.form2entity(sub);
+        repo.save(subs);
+        return mapper.entity2DTO(subs);
     }
 
     @Override

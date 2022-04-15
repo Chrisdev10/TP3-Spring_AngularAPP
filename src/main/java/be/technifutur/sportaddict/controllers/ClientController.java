@@ -3,6 +3,9 @@ package be.technifutur.sportaddict.controllers;
 import be.technifutur.sportaddict.dto.ClientDTO;
 import be.technifutur.sportaddict.forms.ClientForm;
 import be.technifutur.sportaddict.service.ClientService;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;

@@ -11,6 +11,7 @@ public class SubsDTO {
     private Long client;
     private Long fitness;
     private String contractType;
+    private String contractAccess;
     private LocalDateTime contractExpire;
 
 }

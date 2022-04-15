@@ -11,7 +11,7 @@ public interface SubsService {
 
     SubsDTO getOne(Long id);
 
-    SubsDTO addOne(SubsDTO sub);
+    SubsDTO addOne(SubsForm sub);
 
     SubsDTO deleteOne(Long id);
 

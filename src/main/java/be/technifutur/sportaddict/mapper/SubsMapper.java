@@ -2,9 +2,12 @@ package be.technifutur.sportaddict.mapper;
 
 import be.technifutur.sportaddict.dto.SubsDTO;
 import be.technifutur.sportaddict.entity.Subscription;
+import be.technifutur.sportaddict.forms.SubsForm;
 import be.technifutur.sportaddict.repository.ClientRepo;
 import be.technifutur.sportaddict.repository.FitnessRepo;
 import org.springframework.stereotype.Component;
+
+import java.time.ZoneOffset;
 
 @Component
 public class SubsMapper {
@@ -29,20 +32,22 @@ public class SubsMapper {
                 .client(clientMapper.entity2ClientDTO(sub.getClientID()).getId())
                 .fitness(fitnessMapper.entity2dto(sub.getFitnessID()).getId())
                 .contractType(sub.getContractType())
+                .contractAccess(sub.getContractAccess())
                 .contractExpire(sub.getContractExpire())
                 .build();
 
     }
 
-    public Subscription dto2entity(SubsDTO subsDTO) {
-        if (subsDTO == null) {
+    public Subscription form2entity(SubsForm subsForm) {
+        if (subsForm == null) {
             return null;
         }
         return Subscription.builder()
-                .clientID(clientRepo.getById(subsDTO.getClient()))
-                .fitnessID(fitnessRepo.getById(subsDTO.getFitness()))
-                .contractType(subsDTO.getContractType())
-                .contractExpire(subsDTO.getContractExpire())
+                .clientID(clientRepo.getById(subsForm.getClientID()))
+                .fitnessID(fitnessRepo.getById(subsForm.getFitnessID()))
+                .contractType(subsForm.getContractType())
+                .contractAccess(subsForm.getContractAccess())
+                .contractExpire(subsForm.getContractExpire().plusHours(2))
                 .build();
     }
 

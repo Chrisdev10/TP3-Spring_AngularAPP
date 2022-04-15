@@ -2,8 +2,9 @@ package be.technifutur.sportaddict.dto;
 
 import lombok.Builder;
 import lombok.Data;
-
 import java.time.LocalDate;
+
+
 
 @Data
 @Builder
@@ -18,4 +19,5 @@ public class ClientDTO {
     private int phone;
     private String adresse;
     private String city;
+
 }

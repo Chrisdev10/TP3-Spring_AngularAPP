@@ -8,11 +8,14 @@ import be.technifutur.sportaddict.exception.UsernameAlreadyInException;
 import be.technifutur.sportaddict.forms.ClientForm;
 import be.technifutur.sportaddict.mapper.ClientMapper;
 import be.technifutur.sportaddict.repository.ClientRepo;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
-public class ClientServiceImpl implements ClientService{
+public class ClientServiceImpl implements ClientService, UserDetailsService {
     private final ClientRepo repo;
     private final ClientMapper mapper;
 
@@ -78,5 +81,10 @@ public class ClientServiceImpl implements ClientService{
     @Override
     public ClientDTO findByUsername(String username) {
         return mapper.entity2ClientDTO(repo.findClientByUsername(username));
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        return repo.findClientByUsername(username);
     }
 }

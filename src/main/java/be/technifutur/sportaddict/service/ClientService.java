@@ -1,6 +1,7 @@
 package be.technifutur.sportaddict.service;
 
 import be.technifutur.sportaddict.dto.ClientDTO;
+import be.technifutur.sportaddict.entity.Client;
 import be.technifutur.sportaddict.forms.ClientForm;
 
 import java.util.List;

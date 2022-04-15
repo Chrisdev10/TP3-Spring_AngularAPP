@@ -8,6 +8,6 @@ import java.util.Optional;
 
 public interface SubscriptionRepo extends JpaRepository<Subscription, Long> {
 
-    @Query(value = "select s.client_id, s.fitness_id, s.expire_date, s.contract_type from Subscription as s where client_id = ?1", nativeQuery = true)
+    @Query(value = "select s.client_id, s.fitness_id, s.contract_access, s.expire_date, s.contract_type from Subscription as s where client_id = ?1", nativeQuery = true)
     Optional<Subscription> findByClientID(Long id);
 }

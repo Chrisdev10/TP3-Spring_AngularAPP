@@ -19,6 +19,7 @@ insert into client (id, name, first_name, birth_date, email, phone) values (0, '
 insert into client (id, name, first_name, birth_date, email, phone) values (0, 'Hodcroft', 'Isidore', '1989/04/07', 'ihodcrofti@scientificamerican.com', 11939915);
 insert into client (id, name, first_name, birth_date, email, phone) values (0, 'Havile', 'Renard', '1993/01/10', 'rhavilej@bigcartel.com', 12032511);
 insert into client (id,username,password, name, first_name, birth_date, email, phone) values (0,'chris','chris', 'Havile', 'Renard', '1993/01/10', 'rhavilej@bigcartel.com', 12032511);
+insert into client (id,username,password, name, first_name, birth_date, email, phone) values (0,'root','root', 'test', 'test', '1993/01/10', 'test@test.com', 12032511);
 
 
 insert into owner (id, name, first_name, birth_date) values (0, 'Satchell', 'Alix', '1985/07/16');
@@ -42,12 +43,12 @@ insert into owner (id, name, first_name, birth_date) values (0, 'Headingham', 'S
 insert into owner (id, name, first_name, birth_date) values (0, 'Collacombe', 'Rahel', '1999/04/18');
 insert into owner (id, name, first_name, birth_date) values (0, 'Snowding', 'Harli', '1980/07/31');
 
-insert into optiont (id,name) values (0,'piscine');
-insert into optiont (id,name) values (1,'hamam');
-insert into optiont (id,name) values (2,'sauna');
-insert into optiont (id,name) values (3,'salle de boxe');
-insert into optiont (id,name) values (4,'salle exercice collectif');
-insert into optiont (id,name) values (5,'bar');
+insert into optiont (id,name) values (1,'piscine');
+insert into optiont (id,name) values (2,'hamam');
+insert into optiont (id,name) values (3,'sauna');
+insert into optiont (id,name) values (4,'salle de boxe');
+insert into optiont (id,name) values (5,'salle exercice collectif');
+insert into optiont (id,name) values (6,'bar');
 
 insert into fitness_hall (id, city, cp, area, owner_id) values (0, 'Mont-Laurier', 4532, 599,6);
 insert into fitness_hall (id, city, cp, area, owner_id) values (0, 'Verkhnyaya Toyma', 4660, 593,7);
@@ -70,26 +71,26 @@ insert into fitness_hall (id, city, cp, area, owner_id) values (0, 'Guancheng', 
 insert into fitness_hall (id, city, cp, area, owner_id) values (0, 'Barra Mansa', 2033, 919,13);
 insert into fitness_hall (id, city, cp, area, owner_id) values (0, 'Paris 04', 4093, 991,17);
 
-insert into subscription (client_id, fitness_id, contract_type, expire_date) values (1, 1, 6, '2023/06/26');
-insert into subscription (client_id, fitness_id, contract_type, expire_date) values (2, 2, 6, '2022/12/19');
-insert into subscription (client_id, fitness_id, contract_type, expire_date) values (3, 3, 3, '2023/05/13');
-insert into subscription (client_id, fitness_id, contract_type, expire_date) values (4, 4, 12, '2023/02/25');
-insert into subscription (client_id, fitness_id, contract_type, expire_date) values (5, 5, 6, '2022/06/12');
-insert into subscription (client_id, fitness_id, contract_type, expire_date) values (6, 6, 12, '2023/03/09');
-insert into subscription (client_id, fitness_id, contract_type, expire_date) values (7, 7, 12, '2022/06/29');
-insert into subscription (client_id, fitness_id, contract_type, expire_date) values (8, 8, 12, '2023/05/26');
-insert into subscription (client_id, fitness_id, contract_type, expire_date) values (9, 9, 6, '2023/05/23');
-insert into subscription (client_id, fitness_id, contract_type, expire_date) values (10, 10, 3, '2022/12/09');
-insert into subscription (client_id, fitness_id, contract_type, expire_date) values (11, 11, 3, '2022/06/23');
-insert into subscription (client_id, fitness_id, contract_type, expire_date) values (12, 12, 3, '2023/05/28');
-insert into subscription (client_id, fitness_id, contract_type, expire_date) values (13, 13, 6, '2023/07/08');
-insert into subscription (client_id, fitness_id, contract_type, expire_date) values (14, 14, 12, '2022/05/17');
-insert into subscription (client_id, fitness_id, contract_type, expire_date) values (15, 15, 6, '2023/09/12');
-insert into subscription (client_id, fitness_id, contract_type, expire_date) values (16, 16, 6, '2023/02/18');
-insert into subscription (client_id, fitness_id, contract_type, expire_date) values (17, 17, 6, '2022/09/27');
-insert into subscription (client_id, fitness_id, contract_type, expire_date) values (18, 18, 3, '2023/04/13');
-insert into subscription (client_id, fitness_id, contract_type, expire_date) values (19, 19, 3, '2023/04/28');
-insert into subscription (client_id, fitness_id, contract_type, expire_date) values (20, 20, 6, '2023/06/17');
+insert into subscription (client_id, fitness_id, contract_type, contract_access, expire_date) values (1, 1, 12, 'ONE', '2021/09/11');
+insert into subscription (client_id, fitness_id, contract_type, contract_access, expire_date) values (2, 2, 6, 'FULL', '2022/03/29');
+insert into subscription (client_id, fitness_id, contract_type, contract_access, expire_date) values (3, 3, 12, 'FULL', '2021/08/12');
+insert into subscription (client_id, fitness_id, contract_type, contract_access, expire_date) values (4, 4, 3, 'FULL', '2021/04/20');
+insert into subscription (client_id, fitness_id, contract_type, contract_access, expire_date) values (5, 5, 12, 'FULL', '2022/01/19');
+insert into subscription (client_id, fitness_id, contract_type, contract_access, expire_date) values (6, 6, 6, 'ONE', '2022/02/19');
+insert into subscription (client_id, fitness_id, contract_type, contract_access, expire_date) values (7, 7, 3, 'ONE', '2021/09/20');
+insert into subscription (client_id, fitness_id, contract_type, contract_access, expire_date) values (8, 8, 12, 'ONE', '2022/03/19');
+insert into subscription (client_id, fitness_id, contract_type, contract_access, expire_date) values (9, 9, 12, 'FULL', '2022/01/20');
+insert into subscription (client_id, fitness_id, contract_type, contract_access, expire_date) values (10, 10, 6, 'ONE', '2021/10/03');
+insert into subscription (client_id, fitness_id, contract_type, contract_access, expire_date) values (11, 11, 6, 'FULL', '2021/09/05');
+insert into subscription (client_id, fitness_id, contract_type, contract_access, expire_date) values (12, 12, 12, 'ONE', '2021/05/26');
+insert into subscription (client_id, fitness_id, contract_type, contract_access, expire_date) values (13, 13, 12, 'ONE', '2021/12/24');
+insert into subscription (client_id, fitness_id, contract_type, contract_access, expire_date) values (14, 14, 12, 'ONE', '2021/07/21');
+insert into subscription (client_id, fitness_id, contract_type, contract_access, expire_date) values (15, 15, 12, 'ONE', '2022/01/11');
+insert into subscription (client_id, fitness_id, contract_type, contract_access, expire_date) values (16, 16, 6, 'ONE', '2021/09/16');
+insert into subscription (client_id, fitness_id, contract_type, contract_access, expire_date) values (17, 17, 3, 'FULL', '2021/11/26');
+insert into subscription (client_id, fitness_id, contract_type, contract_access, expire_date) values (18, 18, 12, 'ONE', '2021/08/24');
+insert into subscription (client_id, fitness_id, contract_type, contract_access, expire_date) values (19, 19, 6, 'ONE', '2022/01/03');
+insert into subscription (client_id, fitness_id, contract_type, contract_access, expire_date) values (20, 20, 12, 'FULL', '2021/04/26');
 
 insert into fitness_hall_option_list (fitness_hall_list_id, option_list_id) values (20, 3);
 insert into fitness_hall_option_list (fitness_hall_list_id, option_list_id) values (10, 5);

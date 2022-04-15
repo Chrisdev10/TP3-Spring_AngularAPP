@@ -28,7 +28,7 @@ public class SubController {
     }
 
     @PostMapping("")
-    SubsDTO addOne(@RequestBody SubsDTO sub){
+    SubsDTO addOne(@RequestBody SubsForm sub){
         return service.addOne(sub);
     }
 
