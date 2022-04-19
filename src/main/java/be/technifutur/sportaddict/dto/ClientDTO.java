@@ -12,11 +12,12 @@ public class ClientDTO {
     private Long id;
     private String username;
     private String password;
+    private String role;
     private String name;
     private String firstName;
     private String email;
     private LocalDate birthDate;
-    private int phone;
+    private String phone;
     private String adresse;
     private String city;
 

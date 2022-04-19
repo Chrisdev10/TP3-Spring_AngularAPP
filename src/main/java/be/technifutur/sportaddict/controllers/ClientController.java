@@ -3,6 +3,7 @@ package be.technifutur.sportaddict.controllers;
 import be.technifutur.sportaddict.dto.ClientDTO;
 import be.technifutur.sportaddict.forms.ClientForm;
 import be.technifutur.sportaddict.service.ClientService;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -44,6 +45,7 @@ public class ClientController {
         return service.insert(form);
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @DeleteMapping("{id}")
     public ClientDTO deleteOne(@PathVariable Long id) {
         return service.delete(id);

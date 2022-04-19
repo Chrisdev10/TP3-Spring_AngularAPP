@@ -8,6 +8,7 @@ import be.technifutur.sportaddict.exception.UsernameAlreadyInException;
 import be.technifutur.sportaddict.forms.ClientForm;
 import be.technifutur.sportaddict.mapper.ClientMapper;
 import be.technifutur.sportaddict.repository.ClientRepo;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -32,6 +33,7 @@ public class ClientServiceImpl implements ClientService, UserDetailsService {
     }
 
     @Override
+    @PreAuthorize("isAuthenticated()")
     public List<ClientDTO> getAll() {
         return repo.findAll().stream()
                 .map(mapper::entity2ClientDTO)

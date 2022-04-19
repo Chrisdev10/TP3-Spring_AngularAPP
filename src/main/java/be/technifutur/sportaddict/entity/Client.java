@@ -27,11 +27,12 @@ public class Client implements Serializable, UserDetails {
     private String username;
     private String password;
     private String name;
+    private String role;
     private String firstName;
     private LocalDate birthDate;
     @Column(unique = true)
     private String email;
-    private int phone;
+    private String phone;
     private String adresse;
     private String city;
 
@@ -39,29 +40,28 @@ public class Client implements Serializable, UserDetails {
     @OneToOne(mappedBy = "clientID")
     private Subscription subscription;
 
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority("ROLE_USER"));
+        return List.of(new SimpleGrantedAuthority(getRole()));
     }
 
     @Override
     public boolean isAccountNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isEnabled() {
-        return false;
+        return true;
     }
 }

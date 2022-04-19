@@ -4,6 +4,7 @@ import be.technifutur.sportaddict.dto.FitnessDTO;
 import be.technifutur.sportaddict.forms.FitnessForm;
 import be.technifutur.sportaddict.service.FitnessService;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -18,10 +19,12 @@ public class FitnessController {
         this.service = service;
     }
 
+    @PreAuthorize("hasRole('ROLE_USER')")
     @GetMapping("")
     public List<FitnessDTO> getAll(){
         return service.getAll();
     }
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @GetMapping("/{id}")
     public FitnessDTO getOne(@PathVariable Long id){
         return service.getOne(id);

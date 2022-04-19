@@ -12,6 +12,8 @@ spring:
     hibernate:
       ddl-auto: create-drop
     database-platform: org.hibernate.dialect.MySQL5Dialect
+
   sql:
     init:
       mode: always
+
