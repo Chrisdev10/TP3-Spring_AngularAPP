@@ -19,7 +19,6 @@ public class FitnessController {
         this.service = service;
     }
 
-    @PreAuthorize("hasRole('ROLE_USER')")
     @GetMapping("")
     public List<FitnessDTO> getAll(){
         return service.getAll();

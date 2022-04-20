@@ -8,7 +8,6 @@ import be.technifutur.sportaddict.exception.UsernameAlreadyInException;
 import be.technifutur.sportaddict.forms.ClientForm;
 import be.technifutur.sportaddict.mapper.ClientMapper;
 import be.technifutur.sportaddict.repository.ClientRepo;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -19,10 +18,12 @@ import java.util.List;
 public class ClientServiceImpl implements ClientService, UserDetailsService {
     private final ClientRepo repo;
     private final ClientMapper mapper;
+    private final SubsService subsService;
 
-    public ClientServiceImpl(ClientRepo repo, ClientMapper mapper) {
+    public ClientServiceImpl(ClientRepo repo, ClientMapper mapper, SubsService subsService) {
         this.repo = repo;
         this.mapper = mapper;
+        this.subsService = subsService;
     }
 
     @Override
@@ -33,7 +34,6 @@ public class ClientServiceImpl implements ClientService, UserDetailsService {
     }
 
     @Override
-    @PreAuthorize("isAuthenticated()")
     public List<ClientDTO> getAll() {
         return repo.findAll().stream()
                 .map(mapper::entity2ClientDTO)
@@ -58,6 +58,9 @@ public class ClientServiceImpl implements ClientService, UserDetailsService {
     @Override
     public ClientDTO delete(Long id) {
         Client client = repo.findById(id).orElseThrow(() -> new ElementNotFoundException(id, ClientDTO.class));
+        if(client.getSubscription() != null){
+            this.subsService.deleteOne(id);
+        }
         repo.delete(client);
         return mapper.entity2ClientDTO(client);
     }
