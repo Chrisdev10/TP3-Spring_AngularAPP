@@ -4,6 +4,7 @@ import be.technifutur.sportaddict.dto.FitnessDTO;
 import be.technifutur.sportaddict.forms.FitnessForm;
 import be.technifutur.sportaddict.service.FitnessService;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
@@ -34,17 +35,20 @@ public class FitnessController {
         return service.findByOwnerId(id);
     }
 
+    @Secured("ROLE_ADMIN")
     @DeleteMapping("{id}")
     public ResponseEntity<FitnessDTO> delete(@PathVariable Long id){
         return service.deleteOne(id) != null ?
                 ResponseEntity.ok(null) : ResponseEntity.notFound().build();
     }
 
+    @Secured("ROLE_ADMIN")
     @PostMapping("")
     public ResponseEntity<FitnessDTO> insert(@Valid @RequestBody FitnessForm form){
         return ResponseEntity.ok(service.insert(form));
     }
 
+    @Secured("ROLE_ADMIN")
     @PutMapping("{id}")
     public ResponseEntity<FitnessDTO> update(@PathVariable Long id,@Valid @RequestBody FitnessForm form){
         return ResponseEntity.ok(service.updateOne(id,form));

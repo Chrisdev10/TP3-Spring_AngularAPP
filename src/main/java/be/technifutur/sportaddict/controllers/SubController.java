@@ -3,6 +3,8 @@ package be.technifutur.sportaddict.controllers;
 import be.technifutur.sportaddict.dto.SubsDTO;
 import be.technifutur.sportaddict.forms.SubsForm;
 import be.technifutur.sportaddict.service.SubsService;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,11 +19,13 @@ public class SubController {
         this.service = service;
     }
 
+    @PreAuthorize("isAuthenticated()")
     @GetMapping("{id}")
     SubsDTO getOneByClientID(@PathVariable Long id){
         return service.getOne(id);
     }
 
+    @Secured("ROLE_ADMIN")
     @GetMapping("")
     List<SubsDTO> getAll(){
         return service.getAll();
@@ -32,11 +36,13 @@ public class SubController {
         return service.addOne(sub);
     }
 
+    @PreAuthorize("isAuthenticated()")
     @DeleteMapping("{id}")
     SubsDTO delete(@PathVariable Long id){
         return service.deleteOne(id);
     }
 
+    @Secured("ROLE_ADMIN")
     @PutMapping("{id}")
     SubsDTO update(@PathVariable Long id, @RequestBody SubsForm form){
         return service.update(id, form);
