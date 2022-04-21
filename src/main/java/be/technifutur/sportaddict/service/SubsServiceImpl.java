@@ -6,7 +6,6 @@ import be.technifutur.sportaddict.exception.ElementNotFoundException;
 import be.technifutur.sportaddict.forms.SubsForm;
 import be.technifutur.sportaddict.mapper.SubsMapper;
 import be.technifutur.sportaddict.repository.SubscriptionRepo;
-import org.hibernate.mapping.Subclass;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

@@ -24,6 +24,10 @@ public class FitnessController {
     public List<FitnessDTO> getAll(){
         return service.getAll();
     }
+
+    @GetMapping("/city/{city}")
+    public List<FitnessDTO> getByCity(@PathVariable String city){return service.getByCity(city);}
+
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @GetMapping("/{id}")
     public FitnessDTO getOne(@PathVariable Long id){

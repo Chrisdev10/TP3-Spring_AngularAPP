@@ -29,6 +29,14 @@ public class FitnessServiceImpl implements FitnessService {
                 .map(mapper::entity2dto)
                 .toList();
     }
+
+    @Override
+    public List<FitnessDTO> getByCity(String city) {
+        return repo.findFitnessByCity(city).stream()
+                .map(mapper::entity2dto)
+                .toList();
+    }
+
     @Override
     public FitnessDTO getOne(Long id){
         return repo.findById(id)

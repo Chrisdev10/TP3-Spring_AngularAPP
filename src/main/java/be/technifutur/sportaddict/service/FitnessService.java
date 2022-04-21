@@ -9,6 +9,8 @@ public interface FitnessService {
 
     List<FitnessDTO> getAll();
 
+    List<FitnessDTO> getByCity(String city);
+
     FitnessDTO getOne(Long id);
 
     FitnessDTO deleteOne(Long id);

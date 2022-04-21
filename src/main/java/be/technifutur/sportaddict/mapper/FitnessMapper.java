@@ -1,18 +1,23 @@
 package be.technifutur.sportaddict.mapper;
 
 import be.technifutur.sportaddict.dto.FitnessDTO;
+import be.technifutur.sportaddict.dto.OptionDTO;
 import be.technifutur.sportaddict.entity.FitnessHall;
-import be.technifutur.sportaddict.entity.Owner;
 import be.technifutur.sportaddict.forms.FitnessForm;
 import be.technifutur.sportaddict.repository.OwnerRepo;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Component
 public class FitnessMapper {
     private final OwnerRepo repo;
+    private final OptionMapper mapper;
 
-    public FitnessMapper(OwnerRepo repo) {
+    public FitnessMapper(OwnerRepo repo, OptionMapper mapper) {
         this.repo = repo;
+        this.mapper = mapper;
     }
 
     /**
@@ -22,6 +27,7 @@ public class FitnessMapper {
      */
     public FitnessDTO entity2dto(FitnessHall fitness){
         FitnessDTO.OwnerDTO owner = null;
+        List<OptionDTO> option = new ArrayList<>();
         if(fitness == null)
             return null;
         if(fitness.getOwner() != null){
@@ -30,12 +36,15 @@ public class FitnessMapper {
                     .firstName(fitness.getOwner().getFirstName())
                     .build();
         }
-
+        if(fitness.getOptionList() != null){
+            option = fitness.getOptionList().stream().map(mapper::entityTodto).toList();
+        }
         return FitnessDTO.builder()
                 .id(fitness.getId())
                 .area(fitness.getArea())
                 .city(fitness.getCity())
                 .cp(fitness.getCp())
+                .options(option)
                 .owner(owner)
                 .build();
     }

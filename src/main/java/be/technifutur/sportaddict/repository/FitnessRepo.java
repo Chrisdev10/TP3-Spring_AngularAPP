@@ -9,4 +9,6 @@ import java.util.List;
 public interface FitnessRepo extends JpaRepository<FitnessHall, Long> {
 
     List<FitnessHall> findByOwner_Id(Long id);
+    @Query("select f from FitnessHall f where lower(f.city) like lower(concat('%',?1,'%'))")
+    List<FitnessHall> findFitnessByCity(String city);
 }

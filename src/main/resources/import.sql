@@ -43,11 +43,9 @@ insert into owner (id, name, first_name, birth_date) values (0, 'Collacombe', 'R
 insert into owner (id, name, first_name, birth_date) values (0, 'Snowding', 'Harli', '1980/07/31');
 
 insert into optiont (id,name) values (1,'piscine');
-insert into optiont (id,name) values (2,'hamam');
-insert into optiont (id,name) values (3,'sauna');
-insert into optiont (id,name) values (4,'salle de boxe');
-insert into optiont (id,name) values (5,'salle exercice collectif');
-insert into optiont (id,name) values (6,'bar');
+insert into optiont (id,name) values (2,'sauna');
+insert into optiont (id,name) values (3,'running');
+insert into optiont (id,name) values (4,'bar');
 
 insert into fitness_hall (id, city, cp, area, owner_id) values (0, 'Mont-Laurier', 4532, 599,6);
 insert into fitness_hall (id, city, cp, area, owner_id) values (0, 'Verkhnyaya Toyma', 4660, 593,7);
@@ -91,22 +89,22 @@ insert into subscription (client_id, fitness_id, contract_type, contract_access,
 insert into subscription (client_id, fitness_id, contract_type, contract_access, expire_date) values (20, 20, 12, 'FULL', '2021/04/26');
 
 insert into fitness_hall_option_list (fitness_hall_list_id, option_list_id) values (20, 3);
-insert into fitness_hall_option_list (fitness_hall_list_id, option_list_id) values (10, 5);
+insert into fitness_hall_option_list (fitness_hall_list_id, option_list_id) values (10, 2);
 insert into fitness_hall_option_list (fitness_hall_list_id, option_list_id) values (19, 2);
-insert into fitness_hall_option_list (fitness_hall_list_id, option_list_id) values (20, 5);
-insert into fitness_hall_option_list (fitness_hall_list_id, option_list_id) values (6, 5);
-insert into fitness_hall_option_list (fitness_hall_list_id, option_list_id) values (20, 3);
+insert into fitness_hall_option_list (fitness_hall_list_id, option_list_id) values (20, 4);
+insert into fitness_hall_option_list (fitness_hall_list_id, option_list_id) values (6, 4);
+insert into fitness_hall_option_list (fitness_hall_list_id, option_list_id) values (20, 2);
 insert into fitness_hall_option_list (fitness_hall_list_id, option_list_id) values (20, 1);
-insert into fitness_hall_option_list (fitness_hall_list_id, option_list_id) values (7, 5);
+insert into fitness_hall_option_list (fitness_hall_list_id, option_list_id) values (7, 2);
 insert into fitness_hall_option_list (fitness_hall_list_id, option_list_id) values (15, 2);
 insert into fitness_hall_option_list (fitness_hall_list_id, option_list_id) values (18, 3);
-insert into fitness_hall_option_list (fitness_hall_list_id, option_list_id) values (6, 6);
-insert into fitness_hall_option_list (fitness_hall_list_id, option_list_id) values (1, 6);
+insert into fitness_hall_option_list (fitness_hall_list_id, option_list_id) values (6, 1);
+insert into fitness_hall_option_list (fitness_hall_list_id, option_list_id) values (1, 1);
 insert into fitness_hall_option_list (fitness_hall_list_id, option_list_id) values (12, 2);
 insert into fitness_hall_option_list (fitness_hall_list_id, option_list_id) values (8, 4);
 insert into fitness_hall_option_list (fitness_hall_list_id, option_list_id) values (14, 4);
-insert into fitness_hall_option_list (fitness_hall_list_id, option_list_id) values (13, 6);
-insert into fitness_hall_option_list (fitness_hall_list_id, option_list_id) values (9, 6);
-insert into fitness_hall_option_list (fitness_hall_list_id, option_list_id) values (16, 2);
+insert into fitness_hall_option_list (fitness_hall_list_id, option_list_id) values (13, 1);
+insert into fitness_hall_option_list (fitness_hall_list_id, option_list_id) values (9, 2);
+insert into fitness_hall_option_list (fitness_hall_list_id, option_list_id) values (16, 1);
 insert into fitness_hall_option_list (fitness_hall_list_id, option_list_id) values (6, 3);
 insert into fitness_hall_option_list (fitness_hall_list_id, option_list_id) values (12, 4);
